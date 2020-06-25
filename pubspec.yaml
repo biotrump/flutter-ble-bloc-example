@@ -4,7 +4,7 @@ version: 0.0.1+1
 publish_to: "none"
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,8 +13,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_blue:
-    path: ../
+  flutter_blue: ^0.7.2
+#    path: ../
   e2e: ^0.2.1
   flutter_driver:
     sdk: flutter
