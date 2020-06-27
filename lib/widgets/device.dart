@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:math';
 
@@ -161,7 +160,6 @@ class DeviceScreen extends StatelessWidget {
   }
 }
 
-
 class FindDevicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -210,8 +208,10 @@ class FindDevicesScreen extends StatelessWidget {
                 initialData: [],
                 builder: (c, snapshot) => Column(
                   children: snapshot.data
+                      .where((scanResult) => 
+                        scanResult.device.name.startsWith('IX'))//device name should match the condition to be listed!
                       .map(
-                        (r) => ScanResultTile(
+                        (r) => ScanResultTile(  //r is ScanResult
                           result: r,
                           onTap: () => Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
@@ -241,7 +241,7 @@ class FindDevicesScreen extends StatelessWidget {
             return FloatingActionButton(
                 child: Icon(Icons.search),
                 onPressed: () => FlutterBlue.instance
-                    .startScan(timeout: Duration(seconds: 4)));
+                    .startScan(timeout: Duration(seconds: 10)));
           }
         },
       ),
